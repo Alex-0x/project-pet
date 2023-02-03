@@ -8,3 +8,36 @@
     margin-left: 0rem;
     text-align: center;
 }
+
+.searchTitle {
+    display: grid;
+    margin-left: 40%;
+    text-align:center;
+    padding: 1rem;
+    background-color: violet;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    margin-right: 1rem;
+    height: 1rem;
+    width: 20rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+
+}
+.searchTxt{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: solid;
+    border-radius: 0.5rem;
+    border-color: violet;
+    background-color: transparent;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.searchBtn {
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    border-color: violet;
+    background-color: transparent;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}

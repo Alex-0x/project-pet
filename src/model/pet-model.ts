@@ -2,10 +2,13 @@ export interface IPet {
 
 _id: string,
 name: string,
-type: string,
+type: "DOG" | "CAT" | null,
 breed: string,
 birthDate: string,
-created_at: string,
-updated_at: string,
+};
 
-}
+interface IPetCreated extends IPet {
+    created_at: string,
+    updated_at: string,
+};
+
