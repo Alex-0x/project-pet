@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { API_URL } from "../../contants";
 import { IPet } from "../../model/pet-model";
+import { defaultPet } from "../../utils/pet.utils";
 import { PetsCard } from "./pets-card";
 
 
@@ -10,6 +12,7 @@ type TPetState = {
     error:boolean,
     pets: IPet[] | null;
 };
+
 
 
 export const Pets = () => {
@@ -46,13 +49,16 @@ export const Pets = () => {
     useEffect(() => {
         fetchPet();
     }, []);
+
+
      
     return (
      <div className="pets"> 
-        <h1> Pets</h1>
+        <h1 className="titlePage"> Pets</h1>
         <label htmlFor="search" className="searchTitle">Search your favorite pets</label>
         <input type="search" id="search" name="search" className="searchTxt"/>
-        <input type="submit" className="searchBtn" value="Search"></input>
+        <input type="submit" className="searchBtn" value="Search"
+        ></input>
         
        <div className="pets-list">
         {petState.loading &&  "Loading"}

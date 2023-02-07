@@ -55,16 +55,11 @@ import { IPet } from "../../../model/pet-model";
     
     return (
         <div className="petsDetails">
-             <h1>Pets Details</h1>
-
+            
             {currentPetState.loading && "Loading"}
             {currentPetState.error && " Error Loading "}
             {currentPetState.pet && 
-             `Viewing pet with id: ${currentPetState.pet._id} 
-             ${currentPetState.pet.birthDate}  ${currentPetState.pet.breed}
-             ${currentPetState.pet.name}  ${currentPetState.pet.type} `
-             
-            } 
+            `${currentPetState.pet?._id}`} 
         </div>
     );
 };

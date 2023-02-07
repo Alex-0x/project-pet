@@ -1,0 +1,84 @@
+
+.presentation {
+    text-align: center;
+}
+.nameTitle{
+    text-align: center;
+
+}
+.dataForm {
+    color: blueviolet;
+    display: flex;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border: solid;
+
+}
+.pets{
+    background-color: violet;
+}
+.titlePage{
+    color: aqua;
+}
+
+.pet-card {
+    margin-bottom: 1rem;
+   color: aqua;
+   border: solid;
+   background-color: rgb(42, 42, 25);
+}
+.containerPreviw {
+    color: green;
+
+}
+.petsCard {
+    display: flex;
+    width: 100%;
+
+    color: violet;
+    background-color: azure;
+}
+.imgPet {
+   
+    width: auto; 
+    height: 200px;
+    color: black;
+}
+.idPet{
+    border-color: violet;
+   color: bisque;
+   padding: 6rem;
+}
+.PetName{
+    
+     color: violet;
+     padding: 1rem;
+     margin-top: 6rem;
+}
+.typePet{
+    color: yellow;
+    padding: 1rem;
+    margin-top: 6rem;
+}
+.birthDatePet{
+    color: yellowgreen;
+    padding: 1rem;
+    margin-top: 6rem;
+}
+.breedPet{
+  color: blue;
+  padding: 1rem;
+  margin-top: 6rem;
+}
+.pedigreePet{
+  color: blueviolet;
+  padding: 1rem;
+  margin-top: 6rem;
+}
+.descriptionPet {
+  color: aquamarine;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-top: 6rem;
+}

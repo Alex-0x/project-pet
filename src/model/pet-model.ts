@@ -1,10 +1,15 @@
+import { Url } from "url";
+
 export interface IPet {
 
-_id: string,
+_id?: string,
 name: string,
 type: "DOG" | "CAT" | null,
 breed: string,
 birthDate: string,
+imgUrl: string,
+pedigree: boolean,
+description: string,
 };
 
 interface IPetCreated extends IPet {

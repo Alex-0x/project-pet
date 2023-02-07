@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { isButtonElement } from "react-router-dom/dist/dom";
 import { IPet } from "../../model/pet-model";
 
 
@@ -11,27 +12,23 @@ export const PetsCard = (props: Props) => {
 
     return (
         <div className={`pet-card`}>
-            <div className="containerPreviw"></div>
-            <div className="petsCard">
-                <h1 className="idPet">{`${pet._id}`}</h1>
-                <h2 className="PetName">{`${pet.name}`}</h2>
-                <ul className="listaPet">
-                    <li>
-                    { `${pet.type}`}
-                    </li>
-                    <li>
-                    {`${pet.birthDate}`}
-                    </li>
-                    <li>
-                    {`${pet.breed} `}
-                    </li>
-                </ul>
+                    
+            <h1 className="nameTitle">{pet.name}</h1>
+            <img id="imgPet" className="imgPet" src={pet.imgUrl}/>
+  
+            <div className="dataForm">
+                <p className="idPet">Id: <br/>{`${pet._id}`}</p>
+                <p className="PetName">Name:<br/> {`${pet.name}`}</p>
+                <p className="typePet">Type: <br/>{ `${pet.type}`} </p>
+                <p className="birthDatePet">Birthday:<br/>{`${pet.birthDate}`}</p>   
+                <p className="breedPet">Breed:<br/>{`${pet.breed} `}</p>
+                <p className="pedigreePet">Pedigree:<br/>{`${pet.pedigree}`}</p>
+                <p className="descriptionPet">Description:<br/>{`${pet.description}`}</p> 
 
-                </div>
-
-            <Link to={`/pets/${pet._id}`} state= {pet}></Link>
-            
-            <h1>Pets Card</h1>
+                <button type="button" className="btnEdit"><Link to={`/pets/${pet._id}`} state= {pet}>Edit</Link></button>
+                <button type="button" className="btnDelite"><Link to={`/pets/${pet._id}/deleted`} state= {pet}>Delite</Link></button>  
+            </div>
+                
         </div>
     )
 }
