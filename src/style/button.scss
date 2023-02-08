@@ -1,7 +1,7 @@
 
 .btnEdit {
     margin-top: 2rem;
-    background-color: yellow; 
+    background-color: orange; 
     color: white;
     width: 5rem;
     height: 3rem;
@@ -11,7 +11,7 @@
     font-size: 100%;
     border: solid;
     border-radius: 1rem;
-    border-color: yellow;
+    
 }
 .btnDelite{
     background-color:red;
@@ -29,6 +29,7 @@
     border-radius: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
+    border: solid;
    
 }
 
@@ -64,6 +65,8 @@
     border: solid;
     border-color: blueviolet;
     border-radius: 0.5rem;
-
-
+}
+.linkButton{
+    text-decoration: none;
+    color: white;
 }

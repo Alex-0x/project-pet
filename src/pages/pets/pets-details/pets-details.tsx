@@ -54,12 +54,43 @@ import { IPet } from "../../../model/pet-model";
     }, []);
     
     return (
-        <div className="petsDetails">
+    <div className="petsDetails">
             
+            <div  className="divDetailOne"> 
             {currentPetState.loading && "Loading"}
             {currentPetState.error && " Error Loading "}
             {currentPetState.pet && 
-            `${currentPetState.pet?._id}`} 
-        </div>
+            `${currentPetState.pet?._id}`
+            }
+            </div>
+        <div>
+
+         <div className="divDetail">
+        <label htmlFor="namePetDetail">Name:</label>
+            <p>{currentPetState.pet?.name}</p>
+            </div>    
+        <div className="divDetail">
+        <label htmlFor="imgUrlPetDetail">ImgUrl:</label>
+            <p>{currentPetState.pet?.imgUrl}</p>
+            </div>
+        <div className="divDetail">
+        <label htmlFor="typePetDetail">Type:</label>
+            <p>{currentPetState.pet?.type}</p>
+            </div>
+        <div className="divDetail">
+        <label htmlFor="breedPetDetail">Breed:</label>
+            <p>{currentPetState.pet?.breed}</p>
+            </div>
+        <div className="divDetail">
+        <label htmlFor="pedigreePetDetail">Pedigree:</label>
+            <p>{currentPetState.pet?.pedigree}</p>
+            </div>
+        <div className="divDetail">
+        <label htmlFor="descriptionPetDetail">Description:</label>
+            <p>{currentPetState.pet?.description}</p> 
+            </div>
+            
+            </div>
+    </div>
     );
 };

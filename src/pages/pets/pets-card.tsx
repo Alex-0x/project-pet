@@ -25,8 +25,8 @@ export const PetsCard = (props: Props) => {
                 <p className="pedigreePet">Pedigree:<br/>{`${pet.pedigree}`}</p>
                 <p className="descriptionPet">Description:<br/>{`${pet.description}`}</p> 
                 
-                <button type="button" className="btnEdit"><Link to={`/pets/${pet._id}`} state= {pet}>Edit</Link></button>
-                <button type="button" className="btnDelite"><Link to={`/pets/${pet._id}/deleted`} state= {pet}>Delite</Link></button>  
+                <button type="button" className="btnEdit"><Link className="linkButton" to={`/pets/${pet._id}`} state= {pet}>Edit</Link></button>
+                <button type="button" className="btnDelite"><Link className="linkButton" to={`/pets/${pet._id}/deleted`} state= {pet}>Delite</Link></button>  
             </div>
                 
         </div>
