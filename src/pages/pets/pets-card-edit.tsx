@@ -1,13 +1,27 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../../contants";
 import { IPet } from "../../model/pet-model";
+import { defaultPet } from "../../utils/pet.utils";
+import { Pets } from "./pets";
+
 
 export const PetCardEdit = () => {
  const params = useParams();
  const id = params._id;
   
+ const {
+  register,
+  watch,
+  handleSubmit,
+  setValue,
+  formState: {isValid, errors},
+} = useForm({
+  mode: "onChange",
+  defaultValues: defaultPet,
+});
 
 
 useEffect(() => {
@@ -21,28 +35,34 @@ useEffect(() => {
   return (
     <div className="detail">
       <div>
-        Id: <b>{}</b>
+        <label htmlFor="NameEdit"> Name: </label> 
+        <input type="text"
+        placeholder= {defaultPet._id}
+        />
       </div>
       <div>
-        BirthDate: <b>{}</b>
+       <label htmlFor="birthDateEdit"> BirthDate: </label>
+       <input type="date" />
       </div>
       <div>
-       Breed: <b>{}</b>
+       <label htmlFor="typeEdit"> Type: </label>
+       <input type="text" />
       </div>
       <div>
-       Description: <b>{}</b>
+       <label htmlFor="breedEdit"> Breed: </label>
+       <input type="text" />
       </div>
       <div>
-       Image: <b>{}</b>
+       <label htmlFor="ImgUrlEdit"> Img: </label>
+       <input type="text" />
       </div>
       <div>
-        Name: <b>{}</b>
+       <label htmlFor="DescriptionEdit"> Description: </label>
+       <input type="text" />
       </div>
       <div>
-        Pedigree: <b>{}</b>
-      </div>
-      <div>
-        Type: <b>{}</b>
+       <label htmlFor="PedigreeEdit"> Pedigree: </label>
+       <input type="checkbox" />
       </div>
 
       <button>Edit</button>

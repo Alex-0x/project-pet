@@ -17,14 +17,14 @@ export const PetsCard = (props: Props) => {
             <img id="imgPet" className="imgPet" src={pet.imgUrl}/>
   
             <div className="dataForm">
-                <p className="idPet">Id: <br/>{`${pet._id}`}</p>
+                <b className="idPet">Id: <br/> {`${pet._id}`}</b>
                 <p className="PetName">Name:<br/> {`${pet.name}`}</p>
                 <p className="typePet">Type: <br/>{ `${pet.type}`} </p>
                 <p className="birthDatePet">Birthday:<br/>{`${pet.birthDate}`}</p>   
                 <p className="breedPet">Breed:<br/>{`${pet.breed} `}</p>
                 <p className="pedigreePet">Pedigree:<br/>{`${pet.pedigree}`}</p>
                 <p className="descriptionPet">Description:<br/>{`${pet.description}`}</p> 
-
+                
                 <button type="button" className="btnEdit"><Link to={`/pets/${pet._id}`} state= {pet}>Edit</Link></button>
                 <button type="button" className="btnDelite"><Link to={`/pets/${pet._id}/deleted`} state= {pet}>Delite</Link></button>  
             </div>

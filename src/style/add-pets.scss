@@ -1,0 +1,64 @@
+.titleForm {
+    background-color: violet;
+    color: blueviolet;
+    border: solid;
+    border-color: aqua;
+
+}
+.petForm {
+   
+}
+
+.formOne {
+    background-color:rgb(42, 42, 25) ;
+
+}
+
+.rowForm{
+    border: solid;
+    border-color: blueviolet;
+
+}
+
+.selector {
+    border: solid;
+    border-color: blueviolet;
+    border-radius: 0.5rem;
+
+}
+
+.row{
+    border: solid;
+    border-bottom: 2rem;
+    padding: 1rem;
+    border-color: rgb(213, 213, 5);
+    margin-bottom: 0.1rem;
+  
+}
+.queryInput {
+    text-align: center;
+    color: aqua;
+    
+    
+}
+.input {
+    border-color: blueviolet;
+    border-radius: 0.5rem;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    height: 2rem;
+}
+.inputDescription {
+    border-color: blueviolet;
+    border-radius: 0.5rem;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align:start;
+    word-wrap: break-word;
+    height: 6rem;
+}

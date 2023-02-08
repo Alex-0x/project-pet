@@ -1,16 +1,14 @@
-@import url("./style/hompage.scss");
+@import url("./style/header.scss");
 @import url("./style/pets.scss");
 @import url("./style/button.scss");
-@import url("./style/form.scss");
+@import url("./style/pets-card.scss");
+@import url("./style/add-pets.scss");
 
 .App {
   text-align: center;
+  background-color: rgb(249, 208, 57);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

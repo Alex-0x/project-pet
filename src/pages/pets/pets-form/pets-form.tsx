@@ -9,12 +9,13 @@ import { IPet } from "../../../model/pet-model"
 import { defaultPet } from "../../../utils/pet.utils";
 
 export const PetsForm = () => {
-    const navigate = useNavigate();
+   // const navigate = useNavigate();
     const {
         register,
         watch,
         handleSubmit,
         setValue,
+        reset,
         formState: {isValid, errors},
     } = useForm({
         mode: "onChange",
@@ -29,20 +30,36 @@ export const PetsForm = () => {
   
     useEffect(() => {
         setValue("pedigree", true, { shouldValidate: true});
-    }, [watchPedigree]);
+        
+    }, []);
 
     useEffect(() => {
         setValue("pedigree", false, { shouldValidate: true});
-    }, [watchPedigree]);
+        
+     }, []);
     
   
     const onSubmit = async (data:IPet ) => {
         const res = await axios.post(`${API_URL}`, data);
-              
+    alert("You have created a new pet post")      
         console.log(res)
         console.log(data);
-        
+    reset(defaultPet);
+           
     };
+//pedigree btn
+    const [newPedigree, setNewPedigree] = useState<any>({
+       btnTrue: true,
+       btnFalse: false,
+    })
+//pedigree btn
+    const handleInput = (event: any) => {
+        setNewPedigree({
+            ...newPedigree,
+            [event.target.name]: event.target.value,
+            
+        });
+    }
 
 
     const now = dayjs().format("YYYY-MM-DD");
@@ -56,12 +73,15 @@ export const PetsForm = () => {
     
     return (
         <div className="pet-Form">
-            <h1>Add a new Pets</h1>
+            <h1 className="titleForm">Add a new Pets</h1>
 
-            <form>
+            <form className="formOne">
 
-                <div className="rowForm">
-                    <select 
+                <div className="row">
+                    <label className="queryInput" htmlFor="select">Choose the type:</label>
+                    <br />
+
+                    <select className="selector" 
                     {...register("type", {
                         required: {value: true, message:"Field required"}
                     })}
@@ -73,8 +93,11 @@ export const PetsForm = () => {
                 </div>
 
                 {watchType && (
-                    <div className="rowForm">
-                        <select
+                    
+                    <div className="row">
+                        <label className="queryInput" htmlFor="select2">Choose the breed:</label>
+                        <br />
+                        <select className="selector"
                         {...register("breed", {
                             required: {value: true, message:"Field required"},
                         })}
@@ -96,9 +119,13 @@ export const PetsForm = () => {
                 </select>
         </div>
     )}
+
     <div className="row">
-        <label htmlFor="name">Insert Name</label>
-        <input id="name"
+        <label className="queryInput" htmlFor="name">Insert pet name:</label>
+        <br />
+        <input 
+        className="input" 
+        id="name"
         {...register("name", {
             required:{value: true, message:"Field required"},
             minLength:{value: 1, message: "Min 1 character allowed"},
@@ -110,8 +137,10 @@ export const PetsForm = () => {
     </div>
     
     <div className="row">
-        <label htmlFor="data">Insert your pet birthdate </label>
+        <label className="queryInput" htmlFor="data">Insert your pet birthdate: </label>
+        <br />
         <input 
+        className="input"
             id="birthdate"
             type="date"
             max = {now}
@@ -124,8 +153,10 @@ export const PetsForm = () => {
     </div>
 
     <div className="row">
-       <label htmlFor="image">Insert image url</label>
+       <label className="queryInput" htmlFor="image">Insert image url :</label>
+       <br />
     <input
+    className="input"
     id="image"
     {...register("imgUrl", {
     required: { value: true, message: "Field required" },
@@ -133,30 +164,56 @@ export const PetsForm = () => {
      placeholder="Image"
      />
        {errors.imgUrl && errors.imgUrl?.message}
-    </div>
-
-     <div className="row">
+    
      {watchImage && (
      <img className="preview-image" src={watchImage} alt="" />
     )}
     </div>
 
-    <div>
-    <label htmlFor="pedigree">Does your pet have a pedigree ?</label>
+    <div className="row">
+    <label className="queryInput" htmlFor="pedigree">Does your pet have a pedigree ?</label>
 
-        <input    
+        <input
+        className="input"    
         id="pedigree"
-        type="hidden" 
+        type="checkbox" 
         {...register("pedigree")}
         
+        
         />
-    <button type="button" className="btnPedigreeTrue" onClick={ () => {setValue("pedigree", true , {shouldValidate: true})  }}>Yes</button>
-    <button type="button" className="btnPedigreeFalse" onClick={ () => {setValue("pedigree", false , {shouldValidate: true})  }}>No</button>
+        <br />
+    <button 
+             id="btnTrue"
+                name="btnTrue"
+                     type="button" 
+                     className="btnPedigreeTrue" 
+                     onChange={(event) =>setNewPedigree(event)}
+                 value={newPedigree.pedigree}
+             onClick={ () => {setValue("pedigree", true ,
+             {shouldValidate: true})  
+            }}>Yes
+    </button>
+
+    <button
+             id="btnFalse"
+                 name="btnFalse"
+                    type="button" 
+                     className="btnPedigreeFalse" 
+                     onChange={(event) =>setNewPedigree(event)}
+                     value= {newPedigree.pedigree}
+                     onClick={ () => 
+                 {setValue("pedigree", false ,
+             {shouldValidate: true})  
+         }}>No
+    </button>
     </div>
 
-    <div>
+    <div className="row">
+        <label className="queryInput" htmlFor="description">Insert a description about your pet :</label>
+        <br />
         <input 
-        type="text" className="petStory"
+        className="inputDescription"
+        type="text" 
         id="description"
         {...register("description", {
         required: { value: true, message: "Field required" },
@@ -166,12 +223,12 @@ export const PetsForm = () => {
            {errors.description && errors.description.message}
         
     </div>
-    
-  
 
-     <button className="btnSend" disabled={!isValid} onClick={handleSubmit(onSubmit)}>
-    Send
-    </button>
+        <div className="row">
+            <button className="btnSendForm" disabled={!isValid} onClick={handleSubmit(onSubmit)}>
+               Send
+            </button>
+        </div>
 
   </form>
 </div>
