@@ -1,6 +1,6 @@
 export interface IPet {
 
-_id: "",
+_id?: "",
 name: "",
 type: "" | null,
 breed: "" | null,

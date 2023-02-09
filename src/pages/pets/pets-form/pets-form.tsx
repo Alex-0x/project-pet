@@ -14,7 +14,7 @@ type Nprops = {
    
 };
 
-type TPostPetlState = {
+type NPetlState = {
     saving: boolean;
     error: boolean;
 }
@@ -33,7 +33,7 @@ export const PetsForm = (props : Nprops) => {
         defaultValues: props.defaultValues
     });
    
-    const [petState, setPetState] = useState<TPostPetlState>({
+    const [petState, setPetState] = useState<NPetlState>({
         saving: false,
         error: false,
     });
@@ -43,6 +43,7 @@ export const PetsForm = (props : Nprops) => {
 
     
     useEffect(() => {
+        
         setValue("pedigree", false, { shouldValidate: true});
         
      }, []);
@@ -52,7 +53,7 @@ export const PetsForm = (props : Nprops) => {
       
         setPetState({
             ...petState,
-            saving: false,
+            saving: true,
         });
        
        try{
@@ -68,6 +69,7 @@ export const PetsForm = (props : Nprops) => {
         saving: true, 
         error: false,
     });
+    console.log(res.data)
     navigate(`/pets/${res.data._id}`);
     
 

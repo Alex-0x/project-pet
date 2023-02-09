@@ -2,7 +2,7 @@ import { IPet } from "../model/pet-model";
 
 export const defaultPet: IPet = {
 
-    _id: "",
+
     name: "",
     type: "" || null,
     breed: "",
@@ -14,7 +14,7 @@ export const defaultPet: IPet = {
 
 export const defaulValue: IPet = {
 
-    _id: "",
+    
     name: "",
     type: "" || null,
     breed: "",

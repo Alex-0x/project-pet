@@ -17,9 +17,10 @@ type TCurrentPetState = {
 
 export const PetCardEdit = () => {
   const location = useLocation();
- const params = useParams();
+  const params = useParams();
+
  const pet: IPet = location.state;
- const _id = defaultPet._id;
+ const _id = params.id;
  
 
  const [currentPetState, setCurrentPetState] = 
