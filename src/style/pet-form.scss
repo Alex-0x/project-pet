@@ -21,6 +21,10 @@
 }
 
 .selector {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
     border: solid;
     border-color: blueviolet;
     border-radius: 0.5rem;
@@ -43,6 +47,7 @@
     
 }
 .input {
+    margin-top: 1rem;
     border-color: blueviolet;
     border-radius: 0.5rem;
     display: flex;
@@ -53,19 +58,23 @@
     height: 2rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .inputDescription {
     border-color: blueviolet;
     border-radius: 0.5rem;
     display: flex;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     text-align:start;
     word-wrap: break-word;
     height: 6rem;
+    
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .preview-image{
+    margin-top: 1rem;
     width: auto; 
     height: 200px;
     color: black;

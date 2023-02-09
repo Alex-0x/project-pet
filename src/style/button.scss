@@ -87,3 +87,39 @@ button:disabled {
         opacity: 0.5;
         cursor: not-allowed;
 }
+.QuestionDelite {
+    border: solid;
+    border-color: white;
+    background-color: blue;
+}
+.questionDelet {
+    font-size: 200%;
+    position: block;
+    color: white;
+    cursor: pointer;
+
+}
+
+.btnYES{
+    color: white;
+    border-radius: 0.5rem;
+    background-color: red;
+    padding: 1rem;
+    border: solid;
+    border-color: white;
+    cursor: pointer;
+
+}
+
+.btnNO {
+    color: white;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    padding: 1rem;
+    margin-left: 1rem;
+    border: solid;
+    border-color: white ;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+}

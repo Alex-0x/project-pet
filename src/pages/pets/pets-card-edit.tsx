@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../../contants";
 import { IPet } from "../../model/pet-model";
-import { defaultPet } from "../../utils/pet.utils";
-import { Pets } from "./pets";
 import { PetsForm } from "./pets-form/pets-form";
 
 type TCurrentPetState = {
@@ -19,20 +16,18 @@ export const PetCardEdit = () => {
   const location = useLocation();
   const params = useParams();
 
- const pet: IPet = location.state;
- const _id = params.id;
- 
+  const pet: IPet = location.state;
+  const _id = params.id;
 
- const [currentPetState, setCurrentPetState] = 
-   useState<TCurrentPetState>({
+  const [currentPetState, setCurrentPetState] = useState<TCurrentPetState>({
     pet,
     loading: false,
     error: false,
     deleting: false,
-   });
-  
+  });
+
   const fetchPetById = async () => {
-    setCurrentPetState ({
+    setCurrentPetState({
       ...currentPetState,
       loading: true,
     });
@@ -45,27 +40,23 @@ export const PetCardEdit = () => {
         loading: false,
         pet: res.data,
       });
-    }catch(e) {
+    } catch (e) {
       setCurrentPetState({
         ...currentPetState,
         loading: false,
-        error:true,
-      })
+        error: true,
+      });
     }
   };
   useEffect(() => {
     !pet && fetchPetById();
-  },[]);
+  }, []);
 
   return (
-    
     <div>
-    
-    {currentPetState.loading && "Loading"}
-    {currentPetState.error && "Error"}
-    {currentPetState.pet && 
-    <PetsForm defaultValues={currentPetState.pet}/>
-    }
+      {currentPetState.loading && "Loading"}
+      {currentPetState.error && "Error"}
+      {currentPetState.pet && <PetsForm defaultValues={currentPetState.pet} />}
     </div>
   );
 };

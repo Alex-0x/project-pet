@@ -1,5 +1,6 @@
 import { IPet } from "../model/pet-model";
 
+
 export const defaultPet: IPet = {
 
 

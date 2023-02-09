@@ -7,19 +7,18 @@ import { PetsDetail } from "./pages/pets/pets-details/pets-details";
 import { PetsForm } from "./pages/pets/pets-form/pets-form";
 import { defaultPet } from "./utils/pet.utils";
 
-
 export const AppRoutes = () => {
-    return (
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/pets">
-          <Route index element={<Pets />} />
-          <Route path=":id" element={<PetsDetail />} />
-          
-          <Route path="new" element={<PetsForm defaultValues={defaultPet} />} />
-          <Route path="edit/:id" element={<PetCardEdit  />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    );
-  };
+  return (
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/pets">
+        <Route index element={<Pets />} />
+        <Route path=":id" element={<PetsDetail />} />
+
+        <Route path="new" element={<PetsForm defaultValues={defaultPet} />} />
+        <Route path="edit/:id" element={<PetCardEdit />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
