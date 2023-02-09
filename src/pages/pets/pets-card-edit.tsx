@@ -1,71 +1,70 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../../contants";
 import { IPet } from "../../model/pet-model";
 import { defaultPet } from "../../utils/pet.utils";
 import { Pets } from "./pets";
+import { PetsForm } from "./pets-form/pets-form";
 
+type TCurrentPetState = {
+  pet: IPet;
+  loading: boolean;
+  error: boolean;
+  deleting: boolean;
+};
 
 export const PetCardEdit = () => {
+  const location = useLocation();
  const params = useParams();
- const id = params._id;
+ const pet: IPet = location.state;
+ const _id = defaultPet._id;
+ 
+
+ const [currentPetState, setCurrentPetState] = 
+   useState<TCurrentPetState>({
+    pet,
+    loading: false,
+    error: false,
+    deleting: false,
+   });
   
- const {
-  register,
-  watch,
-  handleSubmit,
-  setValue,
-  formState: {isValid, errors},
-} = useForm({
-  mode: "onChange",
-  defaultValues: defaultPet,
-});
+  const fetchPetById = async () => {
+    setCurrentPetState ({
+      ...currentPetState,
+      loading: true,
+    });
 
+    try {
+      const res = await axios.get(`${API_URL}/${_id}`);
 
-useEffect(() => {
- const search = async () => {
-    const res = await axios.put(`${API_URL}`);
-}
-}
-)
-
+      setCurrentPetState({
+        ...currentPetState,
+        loading: false,
+        pet: res.data,
+      });
+    }catch(e) {
+      setCurrentPetState({
+        ...currentPetState,
+        loading: false,
+        error:true,
+      })
+    }
+  };
+  useEffect(() => {
+    !pet && fetchPetById();
+  },[]);
 
   return (
-    <div className="detail">
-      <div>
-        <label htmlFor="NameEdit"> Name: </label> 
-        <input type="text"
-        placeholder= {defaultPet._id}
-        />
-      </div>
-      <div>
-       <label htmlFor="birthDateEdit"> BirthDate: </label>
-       <input type="date" />
-      </div>
-      <div>
-       <label htmlFor="typeEdit"> Type: </label>
-       <input type="text" />
-      </div>
-      <div>
-       <label htmlFor="breedEdit"> Breed: </label>
-       <input type="text" />
-      </div>
-      <div>
-       <label htmlFor="ImgUrlEdit"> Img: </label>
-       <input type="text" />
-      </div>
-      <div>
-       <label htmlFor="DescriptionEdit"> Description: </label>
-       <input type="text" />
-      </div>
-      <div>
-       <label htmlFor="PedigreeEdit"> Pedigree: </label>
-       <input type="checkbox" />
-      </div>
-
-      <button>Edit</button>
+    
+    <div>
+    
+    {currentPetState.loading && "Loading"}
+    {currentPetState.error && "Error"}
+    {currentPetState.pet && 
+    <PetsForm defaultValues={currentPetState.pet}/>
+    }
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { IPet } from "../../model/pet-model";
 
 type Props = {
     pet: IPet;
+    
 };
 
 export const PetsCard = (props: Props) => {
@@ -17,7 +18,7 @@ export const PetsCard = (props: Props) => {
             <img id="imgPet" className="imgPet" src={pet.imgUrl}/>
   
             <div className="dataForm">
-                <b className="idPet">Id: <br/> {`${pet._id}`}</b>
+                <b className="idPet">{`${pet._id}`}</b>
                 <p className="PetName">Name:<br/> {`${pet.name}`}</p>
                 <p className="typePet">Type: <br/>{ `${pet.type}`} </p>
                 <p className="birthDatePet">Birthday:<br/>{`${pet.birthDate}`}</p>   
@@ -25,8 +26,7 @@ export const PetsCard = (props: Props) => {
                 <p className="pedigreePet">Pedigree:<br/>{`${pet.pedigree}`}</p>
                 <p className="descriptionPet">Description:<br/>{`${pet.description}`}</p> 
                 
-                <button type="button" className="btnEdit"><Link className="linkButton" to={`/pets/${pet._id}`} state= {pet}>Edit</Link></button>
-                <button type="button" className="btnDelite"><Link className="linkButton" to={`/pets/${pet._id}/deleted`} state= {pet}>Delite</Link></button>  
+                <button type="button" className="btnEdit"><Link className="linkButton" to={`/pets/${pet._id}`} state= {pet}>Detail</Link></button> 
             </div>
                 
         </div>

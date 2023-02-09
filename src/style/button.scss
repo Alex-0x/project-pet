@@ -11,9 +11,12 @@
     font-size: 100%;
     border: solid;
     border-radius: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
-.btnDelite{
+.btnDelete{
     background-color:red;
     color: white;
     width: 5rem;
@@ -30,6 +33,9 @@
     margin-bottom: 1rem;
     margin-left: 1rem;
     border: solid;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
    
 }
 
@@ -39,6 +45,7 @@
     border: solid;
     border-color: aqua;
     border-radius: 0.5rem;
+   
 }
 
 .btnPedigreeTrue {
@@ -65,8 +72,18 @@
     border: solid;
     border-color: blueviolet;
     border-radius: 0.5rem;
+    cursor: pointer;
+   
+  
+    
 }
 .linkButton{
     text-decoration: none;
     color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button:disabled {  
+        opacity: 0.5;
+        cursor: not-allowed;
 }

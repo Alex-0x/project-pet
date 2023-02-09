@@ -8,6 +8,7 @@ import { PetsCard } from "./pets-card";
 
 
 type TPetState = {
+    deleting: boolean,
     loading: boolean;
     error:boolean,
     pets: IPet[] | null;
@@ -17,6 +18,7 @@ type TPetState = {
 
 export const Pets = () => {
     const [petState, setPetState] = useState<TPetState> ({
+        deleting: false,
         loading: false,
         error:false,
         pets: null,
@@ -51,7 +53,7 @@ export const Pets = () => {
     }, []);
 
 
-const [searchInput, setSearchInput] = useState([]);
+//const [searchInput, setSearchInput] = useState([]);
 
      
     return (

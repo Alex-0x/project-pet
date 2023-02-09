@@ -1,15 +1,13 @@
-import { Url } from "url";
-
 export interface IPet {
 
-_id?: string,
-name: string,
-type: "DOG" | "CAT" | null,
-breed: string,
-birthDate: string,
-imgUrl: string,
-pedigree: boolean,
-description: string,
+_id: "",
+name: "",
+type: "" | null,
+breed: "" | null,
+birthDate: "",
+imgUrl: "",
+pedigree?: false ,
+description: "",
 };
 
 interface IPetCreated extends IPet {

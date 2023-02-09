@@ -7,68 +7,90 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "../../../contants";
 import { IPet } from "../../../model/pet-model"
 import { defaultPet } from "../../../utils/pet.utils";
+import { Pets } from "../pets";
 
-export const PetsForm = () => {
-   // const navigate = useNavigate();
+type Nprops = {
+    defaultValues: IPet;
+   
+};
+
+type TPostPetlState = {
+    saving: boolean;
+    error: boolean;
+}
+
+
+export const PetsForm = (props : Nprops) => {
+   const navigate = useNavigate();
     const {
         register,
         watch,
         handleSubmit,
         setValue,
-        reset,
         formState: {isValid, errors},
     } = useForm({
         mode: "onChange",
-        defaultValues: defaultPet,
+        defaultValues: props.defaultValues
+    });
+   
+    const [petState, setPetState] = useState<TPostPetlState>({
+        saving: false,
+        error: false,
     });
 
     const watchType = watch("type");
     const watchImage = watch("imgUrl");
-    const watchPedigree = watch("pedigree");
-    
-    
-  
-    useEffect(() => {
-        setValue("pedigree", true, { shouldValidate: true});
-        
-    }, []);
 
+    
     useEffect(() => {
         setValue("pedigree", false, { shouldValidate: true});
         
      }, []);
-    
-  
-    const onSubmit = async (data:IPet ) => {
-        const res = await axios.post(`${API_URL}`, data);
-    alert("You have created a new pet post")      
-        console.log(res)
+         
+    const onSubmit= async (data: IPet) => {
         console.log(data);
-    reset(defaultPet);
-           
-    };
-//pedigree btn
-    const [newPedigree, setNewPedigree] = useState<any>({
-       btnTrue: true,
-       btnFalse: false,
-    })
-//pedigree btn
-    const handleInput = (event: any) => {
-        setNewPedigree({
-            ...newPedigree,
-            [event.target.name]: event.target.value,
-            
+      
+        setPetState({
+            ...petState,
+            saving: false,
         });
-    }
+       
+       try{
+        
+        const res = props.defaultValues._id
 
+       ? await axios.put(`${API_URL}/${data._id}`, data) : await axios.post(`${API_URL}`, data);
+        
+    alert("You have created a new pet post")  
+
+    setPetState({
+        ...petState,
+        saving: true, 
+        error: false,
+    });
+    navigate(`/pets/${res.data._id}`);
+    
+
+       } catch (error) {
+        setPetState({
+            ...petState,
+            saving: false,
+            error: true,
+        });
+       }
+            
+};
 
     const now = dayjs().format("YYYY-MM-DD");
 
     useEffect(() => {
-        //setValue("breed", null, { shouldValidate: true});
-        console.log(watchType);
+        setValue ("breed", null, {shouldValidate: true});
+        
+
     }, [watchType]);
 
+
+    
 
     
     return (
@@ -86,21 +108,24 @@ export const PetsForm = () => {
                         required: {value: true, message:"Field required"}
                     })}
                     >
-                        <option value="">Breed</option>
+                        <option value="">Type</option>
                         <option value="DOG">DOG</option>
                         <option value="CAT">CAT</option>
                     </select>
                 </div>
 
-                {watchType && (
-                    
+                {watchType && (   
+
                     <div className="row">
-                        <label className="queryInput" htmlFor="select2">Choose the breed:</label>
+                        <label className="queryInput" htmlFor="select2"
+                        >Choose the breed:</label>
+
                         <br />
                         <select className="selector"
                         {...register("breed", {
                             required: {value: true, message:"Field required"},
                         })}
+                        
                     >
                 
                 {watchType === "DOG" ? (
@@ -182,30 +207,7 @@ export const PetsForm = () => {
         
         />
         <br />
-    <button 
-             id="btnTrue"
-                name="btnTrue"
-                     type="button" 
-                     className="btnPedigreeTrue" 
-                     onChange={(event) =>setNewPedigree(event)}
-                 value={newPedigree.pedigree}
-             onClick={ () => {setValue("pedigree", true ,
-             {shouldValidate: true})  
-            }}>Yes
-    </button>
-
-    <button
-             id="btnFalse"
-                 name="btnFalse"
-                    type="button" 
-                     className="btnPedigreeFalse" 
-                     onChange={(event) =>setNewPedigree(event)}
-                     value= {newPedigree.pedigree}
-                     onClick={ () => 
-                 {setValue("pedigree", false ,
-             {shouldValidate: true})  
-         }}>No
-    </button>
+    
     </div>
 
     <div className="row">
