@@ -1,8 +1,7 @@
 .titleForm {
     background-color: violet;
     color: blueviolet;
-    border: solid;
-    border-color: aqua;
+    border: solid aqua;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
@@ -14,8 +13,7 @@
 }
 
 .rowForm{
-    border: solid;
-    border-color: blueviolet;
+    border: solid blueviolet;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
@@ -25,17 +23,15 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
-    border: solid;
-    border-color: blueviolet;
+    border: solid  blueviolet;
     border-radius: 0.5rem;
 
 }
 
 .row{
-    border: solid;
+    border: solid  rgb(213, 213, 5);
     border-bottom: 2rem;
     padding: 1rem;
-    border-color: rgb(213, 213, 5);
     margin-bottom: 0.1rem;
   
 }

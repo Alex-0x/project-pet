@@ -2,8 +2,8 @@ export interface IPet {
 
 _id?: "",
 name: "",
-type: "" | null,
-breed: "" | null,
+type: "" ,
+breed: "" ,
 birthDate: "",
 imgUrl: "",
 pedigree?: false ,

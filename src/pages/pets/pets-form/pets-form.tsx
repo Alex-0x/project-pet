@@ -53,8 +53,6 @@ export const PetsForm = (props: Nprops) => {
         ? await axios.put(`${API_URL}/${data._id}`, data)
         : await axios.post(`${API_URL}`, data);
 
-      alert("You have created a new pet post");
-
       setPetState({
         ...petState,
         saving: true,
@@ -74,7 +72,7 @@ export const PetsForm = (props: Nprops) => {
   const now = dayjs().format("YYYY-MM-DD");
 
   useEffect(() => {
-    setValue("breed", null, { shouldValidate: true });
+    setValue("breed", props.defaultValues.breed, { shouldValidate: true });
   }, [watchType]);
 
   return (
@@ -116,6 +114,7 @@ export const PetsForm = (props: Nprops) => {
                   <option value="">Breed</option>
                   <option value="Pitbull">Pitbull</option>
                   <option value="Jack Russel">Jack Russel</option>
+                  <option value="Pinscher">Pinscher</option>
                 </>
               ) : (
                 <>

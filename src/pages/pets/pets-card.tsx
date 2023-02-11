@@ -15,30 +15,30 @@ export const PetsCard = (props: Props) => {
 
       <div className="dataForm">
         <b className="idPet">{`${pet._id}`}</b>
-        <p className="PetName">
+        <div className="infoPet">
           Name:
-          {`${pet.name}`}
-        </p>
-        <p className="typePet">
+          <p> {`${pet.name}`} </p>
+        </div>
+        <div className="infoPet">
           Type:
-          {`${pet.type}`}{" "}
-        </p>
-        <p className="birthDatePet">
+          <p> {`${pet.type}`} </p>
+        </div>
+        <div className="infoPet">
           Birthday:
-          {`${pet.birthDate}`}
-        </p>
-        <p className="breedPet">
+          <p> {`${pet.birthDate}`} </p>
+        </div>
+        <div className="infoPet">
           Breed:
-          {`${pet.breed} `}
-        </p>
-        <p className="pedigreePet">
+          <p> {`  ${pet.breed} `} </p>
+        </div>
+        <div className="infoPet">
           Pedigree:
-          {`${pet.pedigree}`}
-        </p>
-        <p className="descriptionPet">
+          <p> {`${pet.pedigree}`} </p>
+        </div>
+        <div className="descriptionPet">
           Description:
-          {`${pet.description}`}
-        </p>
+          <p>{`${pet.description}`} </p>
+        </div>
 
         <button type="button" className="btnEdit">
           <Link className="linkButton" to={`/pets/${pet._id}`} state={pet}>

@@ -62,7 +62,7 @@ export const PetsDetail = () => {
       deleting: true,
     });
     try {
-      const res = await axios.delete(`${API_URL}/${pet._id}`);
+      const res = await axios.delete(`${API_URL}/${id}`);
       setCurrentPetState({
         ...currentPetState,
         error: false,
@@ -127,7 +127,7 @@ export const PetsDetail = () => {
             <button
               type="button"
               className="btnEdit"
-              onClick={() => navigate(`/pets/edit/${pet._id}`)}
+              onClick={() => navigate(`/pets/edit/${id}`)}
             >
               {" "}
               Edit

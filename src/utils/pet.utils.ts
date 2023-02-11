@@ -5,7 +5,7 @@ export const defaultPet: IPet = {
 
 
     name: "",
-    type: "" || null,
+    type: "" ,
     breed: "",
     birthDate: "",
     imgUrl: "",
@@ -17,7 +17,7 @@ export const defaulValue: IPet = {
 
     
     name: "",
-    type: "" || null,
+    type: "" ,
     breed: "",
     birthDate: "",
     imgUrl: "",

@@ -49,11 +49,6 @@ export const Pets = () => {
   return (
     <div className="pets">
       <h1 className="titlePage"> Pets</h1>
-      <label htmlFor="search" className="searchTitle">
-        Search your favorite pets
-      </label>
-      <input type="search" id="search" name="search" className="searchTxt" />
-      <input type="submit" className="searchBtn" value="Search"></input>
 
       <div className="pets-list">
         {petState.loading && "Loading"}
